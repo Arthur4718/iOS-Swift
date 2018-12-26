@@ -21,17 +21,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        randomBallNumber = Int(arc4random_uniform(4))
-        imgBall.image = UIImage(named: imageArray[randomBallNumber])
+        sortImage()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func sortImage(){
+        randomBallNumber = Int(arc4random_uniform(4))
+        imgBall.image = UIImage(named: imageArray[randomBallNumber])
+    }
 
     @IBAction func showText(_ sender: Any) {
-        
+        sortImage()
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+         sortImage()
     }
     
 }
